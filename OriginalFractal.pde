@@ -1,5 +1,5 @@
 public void setup() {
-  size(500, 500);
+  size(1000, 1000);
   rectMode(CENTER);
   noLoop();
 }
@@ -7,13 +7,16 @@ public void draw() {
   myFractal(500, 500, 500);
 }
 public void myFractal(int x, int y, int siz) {
-  
-  
+  float r = 0;
+  int d = 0;
   fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+  //
   ellipse(x, y, siz, siz); 
+  r += .25;
+  //
   if (siz > 10) {
-    myFractal((int)Math.cos(x/siz), (int)Math.sin(y/siz), siz-10);
-    //myFractal((int)Math.cos(x*siz-2), (int)Math.sin(y*siz-2), siz-10);
+    rotate(r);
+    myFractal(d+siz, d + siz, siz-5);
   }
 }
 
